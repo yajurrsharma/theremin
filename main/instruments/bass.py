@@ -11,7 +11,7 @@ class Bass:
 
     def note_on(self, note, v=100):
 
-        if self.current_note and self.current_note != note:
+        if self.current_note is not None and self.current_note != note:
             synth.noteoff(self.track, self.current_note)
 
         synth.noteon(self.track, note, int(v))

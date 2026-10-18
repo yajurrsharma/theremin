@@ -24,6 +24,9 @@ instruments = {
     "synth": Synth()
 }
 
+
+
+
 instrument_sequence = []
 current_step_index = 0
 active_tracks = {}
@@ -31,10 +34,9 @@ recorded_events = []
 is_recording = False
 session_playback_active = False
 
-task_path = 'hand_landmarker.task'
 
 
-base_options = python.BaseOptions(model_asset_path=task_path)
+base_options = python.BaseOptions(model_asset_path='hand_landmarker.task')
 options = vision.HandLandmarkerOptions(
     base_options=base_options,
     num_hands=2,

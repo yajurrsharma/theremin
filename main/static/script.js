@@ -59,13 +59,13 @@ function toggleRecord() {
     if (isRecording) {
         btn.style.borderColor = '#ef4444';
         btn.style.color = '#ef4444';
-        btn.innerText = '[■] RECORDING.';
+        btn.innerText = 'RECORDING.';
         fetch('/api/start_recording', { method: 'POST', headers: { 'Content-Type': 'application/json' } })
             .catch(err => console.error('Error starting record:', err));
     } else {
         btn.style.borderColor = '#ffffff';
         btn.style.color = '#e4e4e7';
-        btn.innerText = '[●] RECORD';
+        btn.innerText = 'RECORD';
         fetch('/api/stop_track', { method: 'POST', headers: { 'Content-Type': 'application/json' } })
             .catch(err => console.error('Error stopping track:', err));
     }

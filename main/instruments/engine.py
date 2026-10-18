@@ -10,7 +10,7 @@ class Engine:
         if Engine._instance is None:
             self.fs = fluidsynth.Synth()
             self.fs.start(driver="alsa")
-            self.sfid = self.fs.sfload("/usr/share/sounds/sf2/TimGM6mb.sf2")
+            self.sfid = self.fs.sfload("TimGM6mb.sf2")
             Engine._instance = self
 
 
