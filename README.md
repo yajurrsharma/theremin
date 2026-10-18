@@ -1,6 +1,6 @@
 # Theremin
 
-you must've heard of this instrument right? played without contact. and well, im making this instrument for my final physics project in first year!
+you must've heard of this instrument right? played without contact. and well, im making this instrument for my final physics project!
 
 now i thought, why not create a web version of this too.. with your camera.. and so i went down the rabbit hole and oh boy, was this THE PROJECT :P
 
