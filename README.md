@@ -23,7 +23,7 @@ once you've chosen the order, click on "record" to start recording the first ins
 
 make beats. go crazy. 
 
-once you're done with the instrument, click the record button again to stop recording. you'll listen to your recorded piece play in the background. 
+once you're done with the instrument, click the record button again to stop recording. you'll listen to your recorded piece play in the background. also note, that the length of your current recorded instrument will not necessarily match the length of your next recorded instrument, so it might play longer or shorter than it!
 
 clicking the record button again starts the second instrument prompt, with the previous one playing in the background! so you can match and make beats! (do know that the looping and playing might be a little wacky, as i wasn't able to completely refine it :P)
 
