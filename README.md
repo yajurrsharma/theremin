@@ -29,4 +29,5 @@ clicking the record button again starts the second instrument prompt, with the p
 
 if you're satisfied with the just 2, you can click on finish and play and it'll play whatever was recorded till that instant, once. or, you could do all 5 and go wild :D
 
+
 making this project took me around 8 and a half hours, over the span of almost a day and a half. this was made as a part of HackClub Expedition!
