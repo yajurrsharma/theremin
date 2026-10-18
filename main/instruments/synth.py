@@ -5,7 +5,7 @@ class Synth:
     def __init__ (self, track=0, program=80):
 
         self.track = track
-        synth.program_select(self.track, synth.sfload("/usr/share/sounds/sf2/TimGM6mb.sf2"), 0, program)
+        synth.program_select(self.track, synth.sfload("TimGM6mb.sf2"), 0, program)
         self.current_note = None
 
 
