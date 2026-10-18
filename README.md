@@ -27,7 +27,7 @@ once you're done with the instrument, click the record button again to stop reco
 
 clicking the record button again starts the second instrument prompt, with the previous one playing in the background! so you can match and make beats! (do know that the looping and playing might be a little wacky, as i wasn't able to completely refine it :P)
 
-if you're satisfied with the just 2, you can click on finish and play and it'll play whatever was recorded till that instant, once. or, you could do all 5 and go wild :D
+if you're satisfied with the just 2, you can click on finalise and play and it'll play whatever was recorded till that instant, once. or, you could do all 5 and go wild :D
 
 
 making this project took me around 8 and a half hours, over the span of almost a day and a half. this was made as a part of HackClub Expedition!
