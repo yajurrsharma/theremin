@@ -8,11 +8,17 @@ initially i had thought of making ONLY a theremin, hence the projects name, but 
 
 ## Installation
 
-all the external files you need are already in their respective folders. all you need to do is download the requirements.txt using 
+all the external files you need are already in their respective folders. all you need to do is download the required modules using:
 ```bash
 pip install -r requirements.txt
 ```
 then go to `main/instruments/` and run `sequencer.py`. it should start a flask server, running on `localhost:5000`. DO NOTE THAT THIS APPLICATION NEEDS YOUR WEBCAM PERMISSION TO RUN!
+
+IF YOU'RE ON WINDOWS, the steps mentioned till here might not work, as windows does not come with a pre installed dll of FluidSynth. you'll have to install it via chocolatey:
+
+```bash
+choco install fluidsynth
+```
 
 ## How to use (and how it works)
 
