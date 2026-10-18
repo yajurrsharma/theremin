@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theremin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="bg-black text-zinc-100 h-screen w-screen flex flex-col justify-between p-2 pt-5 overflow-hidden box-border">
+
+    <header class="w-full max-w-2xl mx-auto border border-white bg-black px-6 py-3 flex items-center justify-between text-sm tracking-widest shrink-0">
+        <div class="flex items-center gap-2.5">
+            <span class="inline-block w-2.5 h-2.5 bg-white"></span>
+            <span class="font-bold uppercase tracking-widest text-zinc-100">THEREMIN</span>
+        </div>
+        <a href="https://www.github.com/yajurrsharma/theremin" target="_blank" class="text-zinc-400 hover:text-white transition-colors uppercase text-xs">GITHUB</a>
+    </header>
+    
+    <main class="w-full max-w-2xl mx-auto flex flex-col items-center justify-start spac-y-1.5 pt-1.5">
+        <div class="w-full border border-white bg-black p-1">
+            <div class="grid grid-cols-5 gap-1.2 text-xs font-mono">
+
+                <button onclick="toggleInstrument(1)" id="btn-1" class="inst-btn relative border border-zinc-600 bg-black py-2.5 text-center transition-colors hover:border-white flex flex-col items-center justify-center">
+                <span class="absolute top-0.5 right-1 text-[9px] text-zinc-300 font-mono order-badge"></span>
+                <span class="font-bold text-zinc-200 text-xs">KICKDRUM</span>
+                </button>
+
+                <button onclick="toggleInstrument(2)" id="btn-2" class="inst-btn relative border border-zinc-600 bg-black py-2.5 text-center transition-colors hover:border-white flex flex-col items-center justify-center">
+                <span class="absolute top-0.5 right-1 text-[9px] text-zinc-300 font-mono order-badge"></span>
+                <span class="font-bold text-zinc-200 text-xs">SNARE</span>
+                </button>
+
+                <button onclick="toggleInstrument(3)" id="btn-3" class="inst-btn relative border border-zinc-600 bg-black py-2.5 text-center transition-colors hover:border-white flex flex-col items-center justify-center">
+                <span class="absolute top-0.5 right-1 text-[9px] text-zinc-300 font-mono order-badge"></span>
+                <span class="font-bold text-zinc-200 text-xs">HI-HAT</span>
+                </button>
+
+                <button onclick="toggleInstrument(4)" id="btn-4" class="inst-btn relative border border-zinc-600 bg-black py-2.5 text-center transition-colors hover:border-white flex flex-col items-center justify-center">
+                <span class="absolute top-0.5 right-1 text-[9px] text-zinc-300 font-mono order-badge"></span>
+                <span class="font-bold text-zinc-200 text-xs">BASS</span>
+                </button>
+
+                <button onclick="toggleInstrument(5)" id="btn-5" class="inst-btn relative border border-zinc-600 bg-black py-2.5 text-center transition-colors hover:border-white flex flex-col items-center justify-center">
+                <span class="absolute top-0.5 right-1 text-[9px] text-zinc-300 font-mono order-badge"></span>
+                <span class="font-bold text-zinc-200 text-xs">SYNTH</span>
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="w-full border border-white bg-black overflow-hidden">
+            <div class="aspect-video flex items-center justify-center bg-black max-h-[48vh]">
+                <img src="/video_feed" alt="Studio Video Feed" class="w-full h-full object-contain">    
+            </div>
+        </div>
+        <div class="w-full flex flex-col items-center space-y-1.5 pt-1">
+            <div class="w-full flex justify-center gap-2">
+                <button id="recordBtn" onclick="toggleRecord()" class="w-1/3 border border-white bg-black py-1.5 text-xs font-mono font-bold text-zinc-200 hover:bg-zinc-900 transition-colors uppercase tracking-wider">
+                    [●] RECORD
+                </button>
+            </div>
+            <div class="w-full flex justify-center">
+                <button id="finalizeBtn" onclick="finalizeAndPlay()" class="w-1/3 border border-white bg-black py-1.5 text-xs font-mono font-bold text-zinc-200 hover:bg-zinc-900 transition-colors uppercase tracking-wider">
+                    [▶] FINALISE AND PLAY
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="w-full max-w-2xl mx-auto border-t border-zinc-800 pt-2 pb-1 text-center text-sm font-mono text-zinc-100 tracking-wider shrink-0">
+        Made with ♥ and lots of coffee by <a href="https://github.com/yajurrsharma" target="_blank" rel="noopener noreferrer">Yajur</a>. For HackClub, By a HackClubber.
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</body>
+</html>
