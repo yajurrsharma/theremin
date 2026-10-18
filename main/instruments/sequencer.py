@@ -48,7 +48,7 @@ cap = cv2.VideoCapture(0)
 
 
 
-def trigger_instrument(inst_name, subtype="default", note=60, velocity=100):
+def trigger(inst_name, subtype="default", note=60, velocity=100):
     inst = instruments.get(inst_name)
     if not inst:
         return
@@ -103,7 +103,7 @@ def background_loop_player():
                     break
                     
                 note_val = ev.get("note", 60)
-                trigger_instrument(
+                trigger(
                     inst_name,
                     ev.get("subtype", "default"),
                     note_val,
@@ -132,7 +132,7 @@ def background_loop_player():
                 break
             time.sleep(0.05)
 
-def lock_current_track():
+def lock_current():
     global current_step_index, recorded_events, active_tracks, session_playback_active, is_recording
     is_recording = False
     
@@ -244,7 +244,7 @@ def generate_frames():
 
                     current_time = time.time()
                     if in_box and not was_in_box and current_inst_name not in ["idle", "done"]:
-                        trigger_instrument(current_inst_name, hit_subtype, note=note_val)
+                        trigger(current_inst_name, hit_subtype, note=note_val)
                         recorded_events.append({
                             "time": current_time,
                             "inst_name": current_inst_name,
@@ -293,7 +293,7 @@ def start_recording():
 
 @app.route('/api/stop_track', methods=['POST'])
 def stop_track():
-    lock_current_track()
+    lock_current()
     return jsonify({"status": "success", "current_step": current_step_index})
 
 @app.route('/finalize_and_play', methods=['POST'])
@@ -336,7 +336,7 @@ def finalize_and_play():
                     time.sleep(sleep_time)
                     
                 note_val = ev.get("note", 60)
-                trigger_instrument(
+                trigger(
                     inst_name,
                     ev.get("subtype", "default"),
                     note_val,
