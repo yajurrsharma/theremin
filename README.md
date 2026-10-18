@@ -17,7 +17,15 @@ then go to `main/instruments/` and run `sequencer.py`. it should start a flask s
 ## How to use (and how it works)
 
 when the web interface opens, you'll see 5 buttons showing you different instruments on the screen, along with your camera.
-clicking on the instruments one by one sets their order, in which they'll be prompted to be played on your camera. once you've chosen the order, click on "record" to start recording the first instrument! bring your right hand's index finger in the camera frame (AWAY FROM THE BOX!) and a red circle should appear on the tip. moving this circle inside the circle, or on its edge will play the instrument sound ONCE. make beats. go crazy. once you're done with the instrument, click the record button again to stop recording. you'll listen to your recorded piece play in the background. clicking the record button again starts the second instrument prompt, with the previous one playing in the background! so you can match and make beats! (do know that the looping and playing might be a little wacky, as i wasn't able to completely refine it :P)
+clicking on the instruments one by one sets their order, in which they'll be prompted to be played on your camera. 
+
+once you've chosen the order, click on "record" to start recording the first instrument! bring your right hand's index finger in the camera frame (AWAY FROM THE BOX!) and a red circle should appear on the tip. moving this circle inside the circle, or on its edge will play the instrument sound ONCE. 
+
+make beats. go crazy. 
+
+once you're done with the instrument, click the record button again to stop recording. you'll listen to your recorded piece play in the background. 
+
+clicking the record button again starts the second instrument prompt, with the previous one playing in the background! so you can match and make beats! (do know that the looping and playing might be a little wacky, as i wasn't able to completely refine it :P)
 
 if you're satisfied with the just 2, you can click on finish and play and it'll play whatever was recorded till that instant, once. or, you could do all 5 and go wild :D
 
