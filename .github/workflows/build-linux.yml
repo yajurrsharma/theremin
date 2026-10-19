@@ -1,4 +1,3 @@
-```yaml
 name: Build Theremin for Linux
 
 on:
@@ -64,4 +63,3 @@ jobs:
           name: Theremin-Linux
           path: Theremin-Linux.tar.gz
           if-no-files-found: error
-```
