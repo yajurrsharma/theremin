@@ -1,0 +1,75 @@
+
+name: Build Theremin for Windows
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install FluidSynth
+        shell: pwsh
+        run: |
+          choco install fluidsynth -y
+          $dll = Get-ChildItem `
+            -Path "C:\Program Files", "C:\tools", "C:\ProgramData\chocolatey\lib" `
+            -Filter "libfluidsynth-3.dll" `
+            -Recurse -ErrorAction SilentlyContinue |
+            Select-Object -First 1
+
+          if (-not $dll) {
+            $dll = Get-ChildItem `
+              -Path "C:\Program Files", "C:\tools", "C:\ProgramData\chocolatey\lib" `
+              -Filter "fluidsynth.dll" `
+              -Recurse -ErrorAction SilentlyContinue |
+              Select-Object -First 1
+          }
+
+          if (-not $dll) {
+            throw "FluidSynth DLL not found. Check the installed package."
+          }
+
+          Write-Host "Found FluidSynth at $($dll.FullName)"
+          "FLUIDSYNTH_DLL=$($dll.FullName)" |
+            Out-File -FilePath $env:GITHUB_ENV -Append
+
+      - name: Install Python dependencies
+        shell: pwsh
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install flask opencv-python mediapipe pyfluidsynth pyinstaller
+
+      - name: Build application
+        shell: pwsh
+        run: |
+          python -m PyInstaller --clean --noconfirm --onedir --console `
+            --name Theremin `
+            --paths main/instruments `
+            --add-data "main/templates;templates" `
+            --add-data "main/static;static" `
+            --add-data "main/instruments/hand_landmarker.task;instruments" `
+            --add-data "main/instruments/TimGM6mb.sf2;instruments" `
+            --add-binary "$env:FLUIDSYNTH_DLL;." `
+            main/instruments/sequencer.py
+
+      - name: Upload build folder
+        uses: actions/upload-artifact@v4
+        with:
+          name: Theremin-Windows
+          path: dist/Theremin/
