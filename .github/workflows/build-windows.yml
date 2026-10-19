@@ -61,6 +61,7 @@ jobs:
           python -m PyInstaller --clean --noconfirm --onedir --console `
             --name Theremin `
             --paths main/instruments `
+            --collect-all mediapipe `
             --add-data "main/templates;templates" `
             --add-data "main/static;static" `
             --add-data "main/instruments/hand_landmarker.task;instruments" `
