@@ -20,6 +20,10 @@ IF YOU'RE ON WINDOWS, the steps mentioned till here might not work, as windows d
 choco install fluidsynth
 ```
 
+OR
+
+just released the compiled binary for windows :) download it, extract, and run `Theremin.exe` to run!
+
 ## How to use (and how it works)
 
 when the web interface opens, you'll see 5 buttons showing you different instruments on the screen, along with your camera.
