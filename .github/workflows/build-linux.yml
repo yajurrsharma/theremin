@@ -1,4 +1,4 @@
-
+```yaml
 name: Build Theremin for Linux
 
 on:
@@ -48,6 +48,11 @@ jobs:
             --add-data "TimGM6mb.sf2:instruments" \
             sequencer.py
 
+      - name: Remove incompatible bundled libraries
+        run: |
+          rm -f main/instruments/dist/Theremin/_internal/libglib-2.0.so.0
+          rm -f main/instruments/dist/Theremin/_internal/libstdc++.so.6
+
       - name: Package Linux build
         run: |
           tar -czf Theremin-Linux.tar.gz \
@@ -59,3 +64,4 @@ jobs:
           name: Theremin-Linux
           path: Theremin-Linux.tar.gz
           if-no-files-found: error
+```
