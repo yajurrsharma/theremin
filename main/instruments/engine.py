@@ -1,5 +1,7 @@
 import fluidsynth
 import sys
+from pathlib import Path
+
 
 
 class Engine:
@@ -30,7 +32,9 @@ class Engine:
                 except Exception as e:
                     print(f"Warning: Could not start default audio driver: {e}")
                     
-            self.sfid = self.fs.sfload("TimGM6mb.sf2")
+            self.sfid = self.fs.sfload(
+                str(Path(__file__).resolve().parent / "TimGM6mb.sf2")
+            )
             Engine._instance = self
 
 
