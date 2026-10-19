@@ -6,10 +6,16 @@ import threading
 import time
 from flask import Flask, render_template, Response, request, jsonify
 from pathlib import Path
+import sys
 
 
-INSTRUMENTS_DIR = Path(__file__).resolve().parent
-PROJECT_DIR = INSTRUMENTS_DIR.parent
+
+if getattr(sys, "frozen", False):
+    PROJECT_DIR = Path(sys._MEIPASS)
+    INSTRUMENTS_DIR = PROJECT_DIR / "instruments"
+else:
+    INSTRUMENTS_DIR = Path(__file__).resolve().parent
+    PROJECT_DIR = INSTRUMENTS_DIR.parent
 
 app = Flask(
     __name__,
