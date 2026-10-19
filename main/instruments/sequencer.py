@@ -5,11 +5,17 @@ from mediapipe.tasks.python import vision
 import threading
 import time
 from flask import Flask, render_template, Response, request, jsonify
+from pathlib import Path
 
 
+INSTRUMENTS_DIR = Path(__file__).resolve().parent
+PROJECT_DIR = INSTRUMENTS_DIR.parent
 
-app = Flask(__name__, template_folder='../templates', static_folder='../static')
-
+app = Flask(
+    __name__,
+    template_folder=str(PROJECT_DIR / "templates"),
+    static_folder=str(PROJECT_DIR / "static")
+)
 from kickdrum import KickDrum
 from snare import Snare
 from hihat import HiHat
@@ -36,7 +42,10 @@ session_playback_active = False
 
 
 
-base_options = python.BaseOptions(model_asset_path='hand_landmarker.task')
+base_options = python.BaseOptions(
+    model_asset_path=str(INSTRUMENTS_DIR / "hand_landmarker.task")
+)
+
 options = vision.HandLandmarkerOptions(
     base_options=base_options,
     num_hands=2,
