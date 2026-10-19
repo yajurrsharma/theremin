@@ -32,10 +32,16 @@ class Engine:
                 except Exception as e:
                     print(f"Warning: Could not start default audio driver: {e}")
                     
-            self.sfid = self.fs.sfload(
-                str(Path(__file__).resolve().parent / "TimGM6mb.sf2")
-            )
-            Engine._instance = self
+            if getattr(sys, "frozen", False):
+                soundfont_path = (
+                    Path(sys._MEIPASS) / "instruments" / "TimGM6mb.sf2"
+                )
+            else:
+                soundfont_path = (
+                    Path(__file__).resolve().parent / "TimGM6mb.sf2"
+                )
+            
+            self.sfid = self.fs.sfload(str(soundfont_path))
 
 
     def get_synth(self):
