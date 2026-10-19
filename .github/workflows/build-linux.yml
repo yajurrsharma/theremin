@@ -1,0 +1,61 @@
+
+name: Build Theremin for Linux
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Linux audio libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libfluidsynth3 libfluidsynth-dev
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install pyinstaller
+
+      - name: Build application
+        working-directory: main/instruments
+        run: |
+          python -m PyInstaller \
+            --clean --noconfirm --onedir --console \
+            --name Theremin \
+            --paths . \
+            --collect-all mediapipe \
+            --add-data "../templates:templates" \
+            --add-data "../static:static" \
+            --add-data "hand_landmarker.task:instruments" \
+            --add-data "TimGM6mb.sf2:instruments" \
+            sequencer.py
+
+      - name: Package Linux build
+        run: |
+          tar -czf Theremin-Linux.tar.gz \
+            -C main/instruments/dist Theremin
+
+      - name: Upload Linux package
+        uses: actions/upload-artifact@v4
+        with:
+          name: Theremin-Linux
+          path: Theremin-Linux.tar.gz
+          if-no-files-found: error
