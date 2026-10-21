@@ -42,9 +42,12 @@ if you're satisfied with just 2, you can click on finalise and play and it'll pl
 
 ### for reference:
 
-kickdrum, snare -> 1 box
-hi hat -> 2 boxes (for closed hi hat and open hi hat respectively)
-synth, bass -> 5 boxes (for the 5 notes in scale)
+1) kickdrum, snare -> 1 box
 
+2) hi hat -> 2 boxes (for closed hi hat and open hi hat respectively)
+
+3) synth, bass -> 5 boxes (for the 5 notes in scale)
+
+---
 
 making this project took me around 8 and a half hours, over the span of almost a day and a half. this was made as a part of HackClub Expedition!
