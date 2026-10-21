@@ -27,7 +27,7 @@ just released the compiled binary for windows :) download it, extract, and run `
 ## How to use (and how it works)
 
 when the web interface opens, you'll see 5 buttons showing you different instruments on the screen, along with your camera.
-clicking on the instruments one by one sets their order, in which they'll be prompted to be played on your camera. 
+clicking on the instruments one by one sets their order, in which they'll appear when played on your camera. 
 
 once you've chosen the order, click on "record" to start recording the first instrument! bring your right hand's index finger in the camera frame (AWAY FROM THE BOX!) and a red circle should appear on the tip. moving this circle inside the circle, or on its edge will play the instrument sound ONCE. 
 
@@ -35,9 +35,16 @@ make beats. go crazy.
 
 once you're done with the instrument, click the record button again to stop recording. you'll listen to your recorded piece play in the background. also note, that the length of your current recorded instrument will not necessarily match the length of your next recorded instrument, so it might play longer or shorter than it!
 
-clicking the record button again starts the second instrument prompt, with the previous one playing in the background! so you can match and make beats! (do know that the looping and playing might be a little wacky, as i wasn't able to completely refine it :P)
+clicking the record button again starts the second instrument, with the previous one playing in the background! so you can match and make beats! (do know that the looping and playing might be a little wacky, as i wasn't able to completely refine it :P)
 
 if you're satisfied with just 2, you can click on finalise and play and it'll play whatever was recorded till that instant, once. or, you could do all 5 and go wild :D
+
+
+### for reference:
+
+kickdrum, snare -> 1 box
+hi hat -> 2 boxes (for closed hi hat and open hi hat respectively)
+synth, bass -> 5 boxes (for the 5 notes in scale)
 
 
 making this project took me around 8 and a half hours, over the span of almost a day and a half. this was made as a part of HackClub Expedition!
