@@ -14,6 +14,8 @@ pip install -r requirements.txt
 ```
 then go to `main/instruments/` and run `sequencer.py`. it should start a flask server, running on `localhost:5000`. DO NOTE THAT THIS APPLICATION NEEDS YOUR WEBCAM PERMISSION TO RUN!
 
+### Windows
+
 IF YOU'RE ON WINDOWS, the steps mentioned till here might not work, as windows does not come with a pre installed dll of FluidSynth. you'll have to install it via chocolatey:
 
 ```bash
@@ -23,6 +25,39 @@ choco install fluidsynth
 OR
 
 just released the compiled binary for windows :) download it, extract, and run `Theremin.exe` to run!
+
+### macOS
+
+for mac, incase you run into any issues with the fluidsynth library, try installing it via brew:
+```bash
+brew install fluid-synth
+```
+to verify, run the list command:
+
+```bash
+brew list fluid-synth
+```
+
+once fluidsynth is installed, you need to make sure that python knows where it's located. run this command to check:
+
+```bash
+find "$(brew --prefix fluid-synth)" -name "libfluidsynth*.dylib"
+```
+
+if its not found, or running the program after this command still shows the same error, enter this command to locate the file, and it should work :)
+
+```bash
+echo export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix fluid-synth)/lib:${DYLD_FALLBACK_LIBRARY_PATH:-}"
+```
+
+this command adds the path directly to mac's fallback library search!
+
+reload your shell via:
+```bash
+source ~/.zshrc
+```
+
+and run `sequencer.py` again to run the program!
 
 ## How to use (and how it works)
 
