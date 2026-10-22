@@ -28,38 +28,47 @@ just released the compiled binary for windows :) download it, extract, and run `
 
 ### macOS
 
-for mac, incase you run into any issues with the fluidsynth library, try installing it via brew:
+for mac users, in case you run into any issues with the fluidsynth library, try installing it via Homebrew:
+
 ```bash
 brew install fluid-synth
 ```
-to verify, run the list command:
+
+to verify the installation, run the list command:
 
 ```bash
 brew list fluid-synth
 ```
 
-once fluidsynth is installed, you need to make sure that python knows where it's located. run this command to check:
+once fluidsynth is installed, you need to make sure python knows where to find it. run this command to locate the library:
 
 ```bash
 find "$(brew --prefix fluid-synth)" -name "libfluidsynth*.dylib"
 ```
 
-if its not found, or running the program after this command still shows the same error, enter this command to locate the file, and it should work :)
+if running the program still shows the same library error, try setting the library search path:
 
 ```bash
-echo export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix fluid-synth)/lib:${DYLD_FALLBACK_LIBRARY_PATH:-}"
+export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix fluid-synth)/lib:${DYLD_FALLBACK_LIBRARY_PATH:-}"
 ```
 
-this command adds the path directly to mac's fallback library search!
+this tells macOS where to look for the library!
 
-reload your shell via:
+if that fixes the issue, you can make the change permanent by running:
+
+```bash
+echo 'export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix fluid-synth)/lib:${DYLD_FALLBACK_LIBRARY_PATH:-}"' >> ~/.zshrc
+```
+
+reload your shell:
+
 ```bash
 source ~/.zshrc
 ```
 
-and run `sequencer.py` again to run the program!
+and run `sequencer.py` again!
 
-no release for macOS yet unfortunately :( but wip!
+**no macOS release yet unfortunately :( but WIP!**
 
 ## How to use (and how it works)
 
