@@ -59,6 +59,8 @@ source ~/.zshrc
 
 and run `sequencer.py` again to run the program!
 
+no release for macOS yet unfortunately :( but wip!
+
 ## How to use (and how it works)
 
 when the web interface opens, you'll see 5 buttons showing you different instruments on the screen, along with your camera.
