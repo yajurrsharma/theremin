@@ -18,6 +18,8 @@ class Engine:
 
         if sys.platform == "win32":
             drivers = ["dsound", "wasapi", "portaudio"]
+        elif sys.platform == "darwin":
+            drivers = ["coreaudio"]
         else:
             drivers = ["pulseaudio", "alsa", "pipewire"]
 
