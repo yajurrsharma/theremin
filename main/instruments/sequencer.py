@@ -260,6 +260,18 @@ def generate_frames():
                     current_time = time.time()
                     if in_box and not was_in_box and current_inst_name not in ["idle", "done"]:
                         trigger(current_inst_name, hit_subtype, note=note_val)
+                        if current_inst_name in ["bass", "synth"]:
+                            def stop_note(inst_name, note):
+                                time.sleep(0.15)
+                                instruments[inst_name].note_off(note)
+                        
+                            threading.Thread(
+                                target=stop_note,
+                                args=(current_inst_name, note_val),
+                                daemon=True
+                            ).start()
+
+                        
                         recorded_events.append({
                             "time": current_time,
                             "inst_name": current_inst_name,
