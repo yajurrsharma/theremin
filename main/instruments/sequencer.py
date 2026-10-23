@@ -130,7 +130,7 @@ def background_loop_player():
                     try:
                         inst_obj = instruments.get(inst_name)
                         if inst_obj and hasattr(inst_obj, 'note_off'):
-                            inst_obj.note_off(note_val)
+                            inst_obj.note_off()
                     except Exception:
                         pass
                         
@@ -263,7 +263,7 @@ def generate_frames():
                         if current_inst_name in ["bass", "synth"]:
                             def stop_note(inst_name, note):
                                 time.sleep(0.15)
-                                instruments[inst_name].note_off(note)
+                                instruments[inst_name].note_off()
                         
                             threading.Thread(
                                 target=stop_note,
@@ -375,7 +375,7 @@ def finalize_and_play():
                     try:
                         inst_obj = instruments.get(inst_name)
                         if inst_obj and hasattr(inst_obj, 'note_off'):
-                            inst_obj.note_off(note_val)
+                            inst_obj.note_off()
                     except Exception:
                         pass
                 event_idx += 1
