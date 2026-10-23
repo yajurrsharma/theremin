@@ -14,7 +14,7 @@ class Engine:
 
         Engine._instance = self
 
-        self.fs = fluidsynth.Synth()
+        self.fs = fluidsynth.Synth(polyphony=256)
 
         if sys.platform == "win32":
             drivers = ["dsound", "wasapi", "portaudio"]
