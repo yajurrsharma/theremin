@@ -2,8 +2,6 @@
 
 you must've heard of this instrument right? played without contact. and well, im making this instrument for my final physics project!
 
-now i thought, why not create a web version of this too.. with your camera.. and so i went down the rabbit hole and oh boy, was this THE PROJECT :P
-
 initially i had thought of making ONLY a theremin, hence the projects name, but then i thought why not add some flavour and some more interesting stuff, and well, here we are. presenting theremin, which is, NOT JUST a theremin, but a music sequencer!
 
 ## Installation
